@@ -1,0 +1,72 @@
+package simulation.processing.parameters;
+
+import java.util.HashMap;
+
+public class Inputs {
+
+	public static final int[] SIMULATOR_SIZE = new int[] { 3200, 1600 };
+	public static final int[] UAV_INITIAL_POSITION = new int[] { 1600, 1500 };
+	public static final int SCREEN_SHOT_RATE = 60;
+	public static final int OBSERVE_TIME = 60 * 5;
+	// 5 sec with 60 frames per second(default) - 300 frames
+
+	public static final int CAM_TILT_MIN = -90;
+	public static final int CAM_TILT_MAX = -40;
+	public static final int UAV_HEIHT = 50;
+	public static UAV_MODES UAV_MODE = UAV_MODES.MANUAL;
+
+	public static int EMILY_COUNT = 0;
+	public static String DATA_COLLECTION_PATH = System.getProperty("user.home")
+<<<<<<< Updated upstream
+			+ "/git/AIR_Spring-17_TAMU/MultiAgentSimulation/src/simulation/data/";
+	public static float[] START_POSITIONS_X = new float[] {};
+	public static float[] START_POSITIONS_Y = new float[] {};
+	public static float[] GOAL_POSITIONS_X = new float[] {};
+	public static float[] GOAL_POSITIONS_Y = new float[] {};
+=======
+			+ "/OneDrive/Documents/TAMU_Spring'17/AIR/P6 - H MA C/MultiAgentSimulation/src/simulation/data/";
+
+	public static final HashMap<String, float[][]> START_POSITIONS = new HashMap<String, float[][]>();
+	public static final HashMap<String, float[][]> GOAL_POSITIONS = new HashMap<String, float[][]>();
+
+	private static final float[][] START_CASE_1 = { {}, {}, {}, {}, {}, {} };
+	private static final float[][] START_CASE_2 = { {}, {}, {}, {}, {}, {} };
+	private static final float[][] START_CASE_3 = { {}, {}, {}, {}, {}, {} };
+	private static final float[][] START_CASE_4 = { {}, {}, {}, {}, {}, {} };
+	private static final float[][] START_CASE_5 = { {}, {}, {}, {}, {}, {} };
+	private static final float[][] START_CASE_6 = { {}, {}, {}, {}, {}, {} };
+	private static final float[][] START_CASE_7 = { {}, {}, {}, {}, {}, {} };
+
+	private static final float[][] GOAL_CASE_1 = { {}, {}, {}, {}, {}, {} };
+	private static final float[][] GOAL_CASE_2 = { {}, {}, {}, {}, {}, {} };
+	private static final float[][] GOAL_CASE_3 = { {}, {}, {}, {}, {}, {} };
+	private static final float[][] GOAL_CASE_4 = { {}, {}, {}, {}, {}, {} };
+	private static final float[][] GOAL_CASE_5 = { {}, {}, {}, {}, {}, {} };
+	private static final float[][] GOAL_CASE_6 = { {}, {}, {}, {}, {}, {} };
+	private static final float[][] GOAL_CASE_7 = { {}, {}, {}, {}, {}, {} };
+
+	static {
+		START_POSITIONS.put(Constants.CASE_ID + "1", START_CASE_1);
+		GOAL_POSITIONS.put(Constants.CASE_ID + "1", GOAL_CASE_1);
+
+		START_POSITIONS.put(Constants.CASE_ID + "2", START_CASE_2);
+		GOAL_POSITIONS.put(Constants.CASE_ID + "2", GOAL_CASE_2);
+
+		START_POSITIONS.put(Constants.CASE_ID + "3", START_CASE_3);
+		GOAL_POSITIONS.put(Constants.CASE_ID + "3", GOAL_CASE_3);
+
+		START_POSITIONS.put(Constants.CASE_ID + "4", START_CASE_4);
+		GOAL_POSITIONS.put(Constants.CASE_ID + "4", GOAL_CASE_4);
+
+		START_POSITIONS.put(Constants.CASE_ID + "5", START_CASE_5);
+		GOAL_POSITIONS.put(Constants.CASE_ID + "5", GOAL_CASE_5);
+
+		START_POSITIONS.put(Constants.CASE_ID + "6", START_CASE_6);
+		GOAL_POSITIONS.put(Constants.CASE_ID + "6", GOAL_CASE_6);
+
+		START_POSITIONS.put(Constants.CASE_ID + "7", START_CASE_7);
+		GOAL_POSITIONS.put(Constants.CASE_ID + "7", GOAL_CASE_7);
+	}
+
+>>>>>>> Stashed changes
+}

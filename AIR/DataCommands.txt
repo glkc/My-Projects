@@ -1,0 +1,11 @@
+tail -n4 -q */*/simulation.log | sort | grep "Total change in UAV Yaw" | cut -d " " -f15
+tail -n4 -q */*/simulation.log | sort | grep "Total change in UAV Cam" | cut -d " " -f16
+tail -n4 -q */*/simulation.log | sort | grep "Total change in UAV Move"| cut -d " " -f16
+tail -n4 -q */*/simulation.log | sort | grep "Total frame" | cut -d " " -f16
+grep -c  "is in the Area Of" */*/simulation.log | grep Case-6 | sort -t '-' -n -k3,3 | cut -d ":" -f2
+grep -L "Metrics for UAV" */*/*/simulation.log
+
+
+Runtime of program: (not same as framecount for simultation)
+head -n1 -q */*/Simulation.log | sort | cut -d "[" -f2 | cut -d "]" -f1 | cut -d " " -f2 | cut -d "," -f1
+tail -n1 -q */*/Simulation.log | sort | cut -d "[" -f2 | cut -d "]" -f1 | cut -d " " -f2 | cut -d "," -f1

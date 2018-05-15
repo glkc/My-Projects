@@ -1,0 +1,54 @@
+{% extends "bootstrap_ui/bootstrap-skeleton.html" %}
+{% block head-title %}
+Peer Grading - About
+{% endblock %}
+{% block body-content %}
+{% load static %}
+<!--css  -->
+<link rel="stylesheet" href="{% static 'css/oauth.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+<div class="container">
+  <nav>
+    <ul class="nav nav-pills float-right">
+      <li class="nav-item">
+        <a class="nav-link active" href="/auth/account/logout">Home<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </nav>
+  <header class="header clearfix">
+    <a href="/courses" style="color: white; text-decoration: none !important"><h1>Peer Grading</h1></a>
+  </header>
+
+  <body background="{% static 'assignment.jpg' %}"
+  style=" background-repeat:no-repeat; background-size:cover; background-attachment:fixed;">
+</body>
+<!-- how it work -->
+<div class="feature" align="left" style="color: LightSkyBlue">
+  <h6 class="display-4">How it works</h6>
+</div>
+<div class="row marketing" style="color: DarkBlue">
+  <div class="col-lg-6">
+    <h1>1. Create New Assigment</h1>
+    <h3>Instructor can create new assignment from the portal.</h3>
+    <br>
+    <h1>2. Assignments Distributed</h1>
+    <h3>Assignments are distributed automatically and randomly, after deadline.</h3>
+    <br>
+    <h1>3. Peer Grading</h1>
+    <h3>Facilitates student to grade the distributed assignments before the deadline.</h3>
+  </div>
+
+  <div class="col-lg-6">
+    <h1>Overview</h1>
+    <h3>As a teacher, user can get the complete overview of the assignments and their grades.</h3>
+    <br>
+    <h3>As a student, user can do peer grading.</h3>
+  </div>
+</div>
+
+<footer class="footer">
+  <p><h4><center>&copy; Aggie 5</center></h4></p>
+</footer>
+
+{% endblock %}

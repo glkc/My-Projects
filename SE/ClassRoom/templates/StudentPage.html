@@ -1,0 +1,82 @@
+<!--Page to be displayed to Student after selecting an assignment. Displays message if no assignments distributed.-->
+{% extends 'CourseWorkList.html' %}
+
+{% block head-title %}
+    Student's Assignment Page
+{% endblock %}
+{% block change-course %}
+    {{ form.courseName|default:"Please select Course." }}
+{% endblock %}
+{% block change-assignment %}
+    {{ form.assignmentName|default:"Please select Assignment." }}
+{% endblock %}
+{% block body-content %}
+    <style>
+        .alert {
+            display: none;
+            color: blanchedalmond;
+            font-size: medium;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+    {{ block.super }}
+    <p></p>
+    <div id="showAlertError" class="alert alert-danger alert-dismissable">
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            Please Grade the assignments below for - {{ form.assignmentName }}
+        </div>
+        <div class="panel-body">
+            {% if form.count %}
+                {% for hw in form.count %}
+                    <li>
+                        <a class="dropdown-item" id="grading" href="#" onclick="openModal('{{ hw }}', {{ forloop.counter }})">
+                            Assignment-{{ forloop.counter }}</a>
+                    </li>
+                {% endfor %}
+            {% else %}
+                No Assignments Found
+            {% endif %}
+        </div>
+        <div id="gradeModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close" onclick="closeModal()" style="line-height: 1;">&times;</span>
+                    <div id="modalHeader"></div>
+                </div>
+                <div class="modal-body">
+                    <p></p>
+                    <iframe id="gradeFormByStudent" frameborder="0" style="width:100%; height:100%;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var modal = document.getElementById('gradeModal');
+
+        function openModal(p, i) {
+            modal.style.display = "block";
+            document.getElementById("modalHeader").textContent = "Assignment-" + String(i);
+            document.getElementById("gradeFormByStudent").src = "/gradeAssignment?index=" + p;
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                closeModal()
+            }
+        };
+
+        if ("{{ isSuccess }}" === "4") { <!--Fetch data error-->
+            $('#showAlertError').text('Error in fetching data. Try again later');
+            $('#showAlertError').show();
+        }
+    </script>
+{% endblock %}
+

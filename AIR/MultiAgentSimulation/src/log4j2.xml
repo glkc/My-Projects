@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<Configuration> 
+  <Appenders> 
+    <File name="FileLogger" fileName="${sys:logFilename}" append="true"> 
+      <PatternLayout pattern="[%d] [%t] [%-5p] - %m%n"/> 
+    </File> 
+    <Console name="STDOUT" target="SYSTEM_OUT"> 
+      <PatternLayout pattern="[%d] [%-5p] [%t] - %m%n"/> 
+    </Console> 
+  </Appenders> 
+  <Loggers> 
+    <Logger name="simulation" level="info"> 
+      <AppenderRef ref="FileLogger"/> 
+    </Logger> 
+    <Root level="info"> 
+      <AppenderRef ref="STDOUT"/> 
+    </Root> 
+  </Loggers> 
+</Configuration>
